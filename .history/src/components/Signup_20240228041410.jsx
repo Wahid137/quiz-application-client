@@ -20,7 +20,7 @@ const SignUp = () => {
         const user = result.user;
         const savedUser = { name, email };
         fetch(
-          "https://quiz-application-server-7nw3ym79g-wahid137.vercel.app/users",
+          "https://quiz-application-server-4w7191bal-wahid137.vercel.app/users",
           {
             method: "POST",
             headers: {

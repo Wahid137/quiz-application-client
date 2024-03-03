@@ -49,7 +49,7 @@ const AuthProvider = ({ children }) => {
         //setLoading(true);
         axios
           .post(
-            "https://quiz-application-server-7nw3ym79g-wahid137.vercel.app/jwt",
+            "https://quiz-application-server-4w7191bal-wahid137.vercel.app/jwt",
             { email: currentUser.email }
           )
           .then((data) => {

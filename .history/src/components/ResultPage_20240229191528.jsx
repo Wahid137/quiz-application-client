@@ -16,7 +16,7 @@ const ResultPage = ({ score, quizzes }) => {
 
   const handleSubmit = () => {
     fetch(
-      "https://quiz-application-server-7nw3ym79g-wahid137.vercel.app/marks",
+      "https://quiz-application-server-4w7191bal-wahid137.vercel.app/marks",
       {
         method: "POST",
         headers: {

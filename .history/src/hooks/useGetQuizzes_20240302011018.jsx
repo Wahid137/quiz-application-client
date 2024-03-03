@@ -2,11 +2,11 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 
 const api_url =
-  "https://quiz-application-server-7nw3ym79g-wahid137.vercel.app/quizzes";
+  "https://quiz-application-server-4w7191bal-wahid137.vercel.app/quizzes";
 
 const retrieveQuizzes = async ({ queryKey }) => {
   const response = await axios.get(
-    `https://quiz-application-server-7nw3ym79g-wahid137.vercel.app/${queryKey}`
+    `https://quiz-application-server-4w7191bal-wahid137.vercel.app/${queryKey}`
   );
   return response.data;
 };

@@ -7,7 +7,7 @@ import Question from "./Question";
 import ResultPage from "./ResultPage";
 
 const api_url =
-  "https://quiz-application-server-7nw3ym79g-wahid137.vercel.app/quizzes";
+  "https://quiz-application-server-4w7191bal-wahid137.vercel.app/quizzes";
 
 const Quiz = () => {
   const [quizzes, setQuizzes] = useState([]);

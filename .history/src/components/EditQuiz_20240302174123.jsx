@@ -9,7 +9,7 @@ import { useEffect } from "react";
 
 const retrieveQuiz = async ({ queryKey }) => {
   const response = await axios.get(
-    `https://quiz-application-server-7nw3ym79g-wahid137.vercel.app/${queryKey[0]}/${queryKey[1]}`
+    `https://quiz-application-server-4w7191bal-wahid137.vercel.app/${queryKey[0]}/${queryKey[1]}`
   );
   return response.data;
 };
@@ -33,7 +33,7 @@ const EditQuiz = () => {
     mutationKey: ["dashboard/editquiz", id],
     mutationFn: async ({ newQuiz, id }) =>
       await axios.put(
-        `https://quiz-application-server-7nw3ym79g-wahid137.vercel.app/dashboard/editquiz/${id}`,
+        `https://quiz-application-server-4w7191bal-wahid137.vercel.app/dashboard/editquiz/${id}`,
         newQuiz
       ),
     onSuccess: () => {

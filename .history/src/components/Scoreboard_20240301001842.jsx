@@ -7,7 +7,7 @@ import Loader from "./Loader";
 const retrieveScoreboard = async ({ queryKey }) => {
   console.log(queryKey[1].email);
   const response = await axios.get(
-    `https://quiz-application-server-7nw3ym79g-wahid137.vercel.app/dashboard/scoreboard?email=${queryKey[1].email}`
+    `https://quiz-application-server-4w7191bal-wahid137.vercel.app/dashboard/scoreboard?email=${queryKey[1].email}`
   );
   return response.data;
 };

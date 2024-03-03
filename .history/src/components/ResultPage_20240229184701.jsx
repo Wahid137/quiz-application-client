@@ -12,7 +12,7 @@ const ResultPage = ({ score, quizzes }) => {
   };
 
   if (quizNo === quizzes.length) {
-    fetch("https://quiz-application-server-7nw3ym79g-wahid137.vercel.app/marks", {
+    fetch("https://quiz-application-server-4w7191bal-wahid137.vercel.app/marks", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

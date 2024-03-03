@@ -9,7 +9,7 @@ const useGetQuizzes = async () => {
   } = useQuery({
     queryKey: ["quizzes"],
     queryFn: async() => {
-      const res = await axios.get(`https://quiz-application-server-7nw3ym79g-wahid137.vercel.app/quizzes`),
+      const res = await axios.get(`https://quiz-application-server-4w7191bal-wahid137.vercel.app/quizzes`),
       return await res.data;
     }
   });

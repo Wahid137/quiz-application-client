@@ -20,7 +20,7 @@ const SignUp = () => {
         const user = result.user;
 
           const user = { name, email };
-          fetch("https://quiz-application-server-7nw3ym79g-wahid137.vercel.app/users", {
+          fetch("https://quiz-application-server-4w7191bal-wahid137.vercel.app/users", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",

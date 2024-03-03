@@ -1,5 +1,5 @@
 const Scoreboard = () => {
-  // https://quiz-application-server-7nw3ym79g-wahid137.vercel.app/dashboard/scoreboard?email=david@gmail.com
+  // https://quiz-application-server-4w7191bal-wahid137.vercel.app/dashboard/scoreboard?email=david@gmail.com
   return (
     <div className="mt-10">
       <div className="overflow-x-auto w-3/4 mx-auto bg-zinc-200">

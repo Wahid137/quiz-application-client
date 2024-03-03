@@ -7,7 +7,7 @@ import Loader from "./Loader";
 
 const retrieveQuiz = async ({ queryKey }) => {
   const response = await axios.get(
-    `https://quiz-application-server-7nw3ym79g-wahid137.vercel.app/${queryKey[0]}/${queryKey[1]}`
+    `https://quiz-application-server-4w7191bal-wahid137.vercel.app/${queryKey[0]}/${queryKey[1]}`
   );
   return response.data;
 };
@@ -27,7 +27,7 @@ const EditQuiz = () => {
   const mutation = useMutation({
     mutationFn: (newQuiz) =>
       axios.post(
-        "https://quiz-application-server-7nw3ym79g-wahid137.vercel.app/dashboard/addquiz",
+        "https://quiz-application-server-4w7191bal-wahid137.vercel.app/dashboard/addquiz",
         newQuiz
       ),
     onSuccess: () => {

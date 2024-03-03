@@ -2,13 +2,13 @@ import axios from "axios";
 
 const retrieveProducts = async ({ queryKey }) => {
   const response = await axios.get(
-    `https://quiz-application-server-7nw3ym79g-wahid137.vercel.app/products?_page=${queryKey[1].page}&_per_page=6`
+    `https://quiz-application-server-4w7191bal-wahid137.vercel.app/products?_page=${queryKey[1].page}&_per_page=6`
   );
   return response.data;
 };
 
 const Scoreboard = () => {
-  // https://quiz-application-server-7nw3ym79g-wahid137.vercel.app/dashboard/scoreboard?email=david@gmail.com
+  // https://quiz-application-server-4w7191bal-wahid137.vercel.app/dashboard/scoreboard?email=david@gmail.com
 
   const {
     data: scoreboard,

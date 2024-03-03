@@ -11,7 +11,7 @@ const QuizSingle = ({ quiz, i }) => {
   const mutation = useMutation({
     mutationFn: (id) =>
       axios.delete(
-        `https://quiz-application-server-7nw3ym79g-wahid137.vercel.app/dashboard/deletequiz/${id}`
+        `https://quiz-application-server-4w7191bal-wahid137.vercel.app/dashboard/deletequiz/${id}`
       ),
   });
 

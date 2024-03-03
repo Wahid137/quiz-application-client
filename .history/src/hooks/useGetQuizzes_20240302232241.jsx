@@ -7,7 +7,7 @@ const useGetQuizzes = () => {
     queryFn: async () => {
       try {
         const response = await axios.get(
-          "https://quiz-application-server-7nw3ym79g-wahid137.vercel.app/quizzes"
+          "https://quiz-application-server-4w7191bal-wahid137.vercel.app/quizzes"
         );
         return response.data;
       } catch (error) {

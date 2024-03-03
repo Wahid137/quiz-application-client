@@ -4,7 +4,7 @@ import axios from "axios";
 const retrieveQuizzes = async ({ queryKey }) => {
   console.log(queryKey);
   const response = await axios.get(
-    `https://quiz-application-server-7nw3ym79g-wahid137.vercel.app/quizzes`
+    `https://quiz-application-server-4w7191bal-wahid137.vercel.app/quizzes`
   );
   console.log(response.data);
   return response.data;

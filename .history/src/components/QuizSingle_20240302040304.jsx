@@ -13,7 +13,7 @@ const QuizSingle = ({ quiz, i }) => {
     mutationFn: async (id) => {
       try {
         const response = await axios.delete(
-          `https://quiz-application-server-7nw3ym79g-wahid137.vercel.app/dashboard/addquiz/${id}`
+          `https://quiz-application-server-4w7191bal-wahid137.vercel.app/dashboard/addquiz/${id}`
         );
         return response.data; // Assuming the server returns some data upon successful deletion
       } catch (error) {

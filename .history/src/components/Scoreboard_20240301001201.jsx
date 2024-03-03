@@ -11,7 +11,7 @@ const ProductList = ({ onClickImage }) => {
   const queryClient = useQueryClient();
 
 const Scoreboard = () => {
-  // https://quiz-application-server-7nw3ym79g-wahid137.vercel.app/dashboard/scoreboard?email=david@gmail.com
+  // https://quiz-application-server-4w7191bal-wahid137.vercel.app/dashboard/scoreboard?email=david@gmail.com
 
   const {
     data: products,
