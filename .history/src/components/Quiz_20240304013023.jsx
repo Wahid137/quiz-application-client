@@ -1,9 +1,6 @@
-import { useContext, useEffect, useState } from "react";
-import toast from "react-hot-toast";
+import { useEffect, useState } from "react";
 import { RiArrowLeftLine, RiArrowRightLine } from "react-icons/ri";
-import { useNavigate } from "react-router-dom";
 import useGetQuizzes from "../hooks/useGetQuizzes";
-import { AuthContext } from "../providers/AuthProvider.jsx";
 import AnswerList from "./AnswerList.jsx";
 import Button from "./Button.jsx";
 import Loader from "./Loader";
@@ -11,14 +8,12 @@ import Question from "./Question.jsx";
 import ResultPage from "./ResultPage.jsx";
 
 const Quiz = () => {
-  const { user } = useContext(AuthContext);
   const [quizzes, isLoading] = useGetQuizzes();
   const [quizNo, setQuizNo] = useState(0);
   const [choice, setChoice] = useState("");
   const [score, setScore] = useState(0);
   const [shuffledAnswers, setShuffledAnswers] = useState([]);
   const [timer, setTimer] = useState(600); // 10 minutes in seconds
-  const navigate = useNavigate();
 
   useEffect(() => {
     if (quizzes?.length > 0 && quizNo < quizzes.length) {
@@ -41,10 +36,10 @@ const Quiz = () => {
       setTimer((prevTimer) => prevTimer - 1);
     }, 1000);
 
-    // Clear interval and submit when timer reaches 0
+    // Clear interval when timer reaches 0
     if (timer === 0) {
       clearInterval(interval);
-      handleSubmit(); // Call the submission logic
+      handleSubmit(); // Call the handleSubmit function when the timer ends
     }
 
     return () => clearInterval(interval);
@@ -65,39 +60,10 @@ const Quiz = () => {
     setChoice(""); // Reset choice when moving to the previous question
   };
 
-  const marks = {
-    email: user?.email,
-    marks: score || 0,
-    category: quizzes && quizzes[0]?.category,
-  };
-
   const handleSubmit = () => {
-    fetch("http://localhost:5000/marks", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(marks),
-    })
-      .then((res) => {
-        if (!res.ok) {
-          throw new Error("Failed to save user");
-        }
-        return res.json();
-      })
-      .then((data) => {
-        if (data.acknowledged) {
-          toast.success("Submitted Successfully!");
-          navigate("/dashboard");
-        } else {
-          toast.error(data.message);
-          navigate("/");
-        }
-      })
-      .catch((error) => {
-        toast.error("An error occurred while submitting the quiz.");
-      })
-      .finally(() => {});
+    // Your submission logic here
+    console.log("Quiz submitted automatically!");
+    // Navigate to the result page or execute submission logic here
   };
 
   const checkAnswer = () => {
@@ -129,7 +95,11 @@ const Quiz = () => {
         {isLoading ? (
           <Loader />
         ) : quizNo === quizzes?.length ? (
-          <ResultPage score={score} quizzes={quizzes} />
+          <ResultPage
+            score={score}
+            quizzes={quizzes}
+            handleSubmit={handleSubmit}
+          />
         ) : (
           <div>
             <div className="flex justify-between mb-3">

@@ -17,7 +17,7 @@ const Quiz = () => {
   const [choice, setChoice] = useState("");
   const [score, setScore] = useState(0);
   const [shuffledAnswers, setShuffledAnswers] = useState([]);
-  const [timer, setTimer] = useState(600); // 10 minutes in seconds
+  const [timer, setTimer] = useState(3); // 10 minutes in seconds
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -67,8 +67,8 @@ const Quiz = () => {
 
   const marks = {
     email: user?.email,
-    marks: score || 0,
-    category: quizzes && quizzes[0]?.category,
+    marks: score,
+    category: quizzes[0]?.category;,
   };
 
   const handleSubmit = () => {
@@ -129,7 +129,11 @@ const Quiz = () => {
         {isLoading ? (
           <Loader />
         ) : quizNo === quizzes?.length ? (
-          <ResultPage score={score} quizzes={quizzes} />
+          <ResultPage
+            score={score}
+            quizzes={quizzes}
+            handleSubmit={handleSubmit} // Pass the handleSubmit function to ResultPage
+          />
         ) : (
           <div>
             <div className="flex justify-between mb-3">

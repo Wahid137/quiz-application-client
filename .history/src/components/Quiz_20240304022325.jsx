@@ -1,9 +1,6 @@
-import { useContext, useEffect, useState } from "react";
-import toast from "react-hot-toast";
+import { useEffect, useState } from "react";
 import { RiArrowLeftLine, RiArrowRightLine } from "react-icons/ri";
-import { useNavigate } from "react-router-dom";
 import useGetQuizzes from "../hooks/useGetQuizzes";
-import { AuthContext } from "../providers/AuthProvider.jsx";
 import AnswerList from "./AnswerList.jsx";
 import Button from "./Button.jsx";
 import Loader from "./Loader";
@@ -11,14 +8,12 @@ import Question from "./Question.jsx";
 import ResultPage from "./ResultPage.jsx";
 
 const Quiz = () => {
-  const { user } = useContext(AuthContext);
   const [quizzes, isLoading] = useGetQuizzes();
   const [quizNo, setQuizNo] = useState(0);
   const [choice, setChoice] = useState("");
   const [score, setScore] = useState(0);
   const [shuffledAnswers, setShuffledAnswers] = useState([]);
-  const [timer, setTimer] = useState(600); // 10 minutes in seconds
-  const navigate = useNavigate();
+  const [timer, setTimer] = useState(3); // 10 minutes in seconds
 
   useEffect(() => {
     if (quizzes?.length > 0 && quizNo < quizzes.length) {
@@ -67,8 +62,8 @@ const Quiz = () => {
 
   const marks = {
     email: user?.email,
-    marks: score || 0,
-    category: quizzes && quizzes[0]?.category,
+    marks: score,
+    category,
   };
 
   const handleSubmit = () => {
@@ -97,7 +92,9 @@ const Quiz = () => {
       .catch((error) => {
         toast.error("An error occurred while submitting the quiz.");
       })
-      .finally(() => {});
+      .finally(() => {
+        setIsSubmitting(false);
+      });
   };
 
   const checkAnswer = () => {
@@ -129,7 +126,11 @@ const Quiz = () => {
         {isLoading ? (
           <Loader />
         ) : quizNo === quizzes?.length ? (
-          <ResultPage score={score} quizzes={quizzes} />
+          <ResultPage
+            score={score}
+            quizzes={quizzes}
+            handleSubmit={handleSubmit} // Pass the handleSubmit function to ResultPage
+          />
         ) : (
           <div>
             <div className="flex justify-between mb-3">

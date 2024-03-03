@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
 import Button from "./Button";
 
-const ResultPage = ({ score, quizzes }) => {
+const ResultPage = ({ score, quizzes, handleSubmit }) => {
   const { user } = useContext(AuthContext);
   const category = quizzes[0].category;
   const navigate = useNavigate();
@@ -54,15 +54,18 @@ const ResultPage = ({ score, quizzes }) => {
 
       <span className=" text-3xl">Congratulations!</span>
 
-      <h2 className=" font-bold text-4xl">Quiz Completed</h2>
+      <h2 className=" font-bold text-5xl">Quiz Completed</h2>
 
       <span className="block text-lg font-light">
         You have successfully completed the quiz.
       </span>
 
       <Button
-        onClickButton={handleSubmission}
-        disabled={isSubmitting}
+        onClickButton={() => {
+          handleSubmit(); // Call the handleSubmit function passed as prop
+          handleSubmission(); // Submit the quiz
+        }}
+        disabled={isSubmitting} // Disable button while submitting
         customStyle={`w-full md:w-fit bg-accent text-white dark:bg-primary px-8 py-2 rounded-full mt-auto md:mt-10 ${
           isSubmitting && "opacity-50 cursor-not-allowed"
         }`}

@@ -129,7 +129,11 @@ const Quiz = () => {
         {isLoading ? (
           <Loader />
         ) : quizNo === quizzes?.length ? (
-          <ResultPage score={score} quizzes={quizzes} />
+          <ResultPage
+            score={score}
+            quizzes={quizzes}
+            handleSubmit={handleSubmit} // Pass the handleSubmit function to ResultPage
+          />
         ) : (
           <div>
             <div className="flex justify-between mb-3">

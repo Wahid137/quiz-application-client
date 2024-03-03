@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
 import Button from "./Button";
 
-const ResultPage = ({ score, quizzes }) => {
+const ResultPage = ({ score, quizzes, handleSubmit }) => {
   const { user } = useContext(AuthContext);
   const category = quizzes[0].category;
   const navigate = useNavigate();
