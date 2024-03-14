@@ -40,8 +40,7 @@ const Login = () => {
             <p className="text-gray-600 pt-2">
               Admin Email : wahidahmed5037@gmail.com
             </p>
-            <p className="text-gray-600">Admin Pass: 123456</p>
-            <p className="text-red-600">Plz don't misuse the power of admin</p>
+            <p className="text-gray-600 pt-2">Admin Pass: 123456</p>
           </di>
 
           <div className="mt-10">

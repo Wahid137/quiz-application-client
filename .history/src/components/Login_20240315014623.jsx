@@ -36,13 +36,12 @@ const Login = () => {
             <p className="text-gray-600 pt-2">Sign in to your account.</p>
           </div>
 
-          <di className="mt-4">
-            <p className="text-gray-600 pt-2">
+          <div>
+            <h3 className="text-gray-600 pt-2">
               Admin Email : wahidahmed5037@gmail.com
-            </p>
-            <p className="text-gray-600">Admin Pass: 123456</p>
-            <p className="text-red-600">Plz don't misuse the power of admin</p>
-          </di>
+            </h3>
+            <p className="text-gray-600 pt-2">Admin Pass: 123456</p>
+          </div>
 
           <div className="mt-10">
             <form onSubmit={handleLogin} className="flex flex-col">

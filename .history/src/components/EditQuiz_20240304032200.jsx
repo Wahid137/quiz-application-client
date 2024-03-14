@@ -9,7 +9,7 @@ import { useEffect } from "react";
 
 const retrieveQuiz = async ({ queryKey }) => {
   const response = await axios.get(
-    `https://quiz-application-server.vercel.app/${queryKey[0]}/${queryKey[1]}`
+    `http://localhost:5000/${queryKey[0]}/${queryKey[1]}`
   );
   return response.data;
 };
