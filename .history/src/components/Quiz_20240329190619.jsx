@@ -122,9 +122,13 @@ const Quiz = () => {
 
   return (
     <div className="h-screen text-slate-800 dark:bg-accent dark:text-slate-100 flex flex-col items-center justify-center p-3">
-      {/* <div className="text-xl font-bold text-red-700">
-        Time Left: {Math.floor(timer / 60)}:{timer % 60}
-      </div> */}
+      <div className="text-xl font-bold text-red-700">
+        {quizzes.length && (
+          <p>
+            Time Left: {Math.floor(timer / 60)}:{timer % 60}
+          </p>
+        )}
+      </div>
       <div className="w-full md:max-w-lg">
         {isLoading ? (
           <Loader />

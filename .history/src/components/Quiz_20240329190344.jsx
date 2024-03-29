@@ -17,7 +17,6 @@ const Quiz = () => {
   const [choice, setChoice] = useState("");
   const [score, setScore] = useState(0);
   const [shuffledAnswers, setShuffledAnswers] = useState([]);
-  const [timer, setTimer] = useState(600); // 10 minutes in seconds
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -35,20 +34,6 @@ const Quiz = () => {
       setShuffledAnswers(shuffled);
     }
   }, [quizzes, quizNo]);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setTimer((prevTimer) => prevTimer - 1);
-    }, 1000);
-
-    // Clear interval and submit when timer reaches 0
-    if (timer === 0) {
-      clearInterval(interval);
-      handleSubmit(); // Call the submission logic
-    }
-
-    return () => clearInterval(interval);
-  }, [timer]);
 
   const handleSelectAnswer = (answer) => setChoice(answer);
 
@@ -122,9 +107,9 @@ const Quiz = () => {
 
   return (
     <div className="h-screen text-slate-800 dark:bg-accent dark:text-slate-100 flex flex-col items-center justify-center p-3">
-      {/* <div className="text-xl font-bold text-red-700">
+      <div className="text-xl font-bold text-red-700">
         Time Left: {Math.floor(timer / 60)}:{timer % 60}
-      </div> */}
+      </div>
       <div className="w-full md:max-w-lg">
         {isLoading ? (
           <Loader />
